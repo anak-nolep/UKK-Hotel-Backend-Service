@@ -1,7 +1,7 @@
 const express = require("express"); // import express
 const bodyParser = require("body-parser"); // import body-parser
 const { Op } = require("sequelize"); // import sequelize
-const auth = require("../auth"); // import auth
+const { auth } = require("../auth"); // import auth
 
 const app = express(); // create express app
 app.use(bodyParser.json()); // parse request of content-type - application/json
@@ -16,7 +16,7 @@ const fs = require("fs"); // import fs
 
 const storage = multer.diskStorage({ // set storage
   destination: (req, file, cb) => { // set destination
-    cb(null, "./public/images/tipe kamar"); // set destination
+    cb(null, "./public/images/kamar"); // set destination
   },
   filename: (req, file, cb) => { // set filename
     cb(null, "img-" + Date.now() + path.extname(file.originalname)); // set filename
@@ -183,7 +183,7 @@ app.patch( // update data
             res.status(400).json({ // kirim response dengan status 400
               status: "error", // status error
               message: error.message, // pesan error
-            }); 
+            });
           });
       } else { // jika data tidak ditemukan
         res.status(404).json({ // kirim response dengan status 404

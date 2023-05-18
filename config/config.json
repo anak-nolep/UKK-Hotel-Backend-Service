@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "dhisa",
-    "password": "22082004",
-    "database": "ukk_hotel",
+    "username": "root",
+    "password": null,
+    "database": "ukk_hotel_dev",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "ukk_hotel_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "ukk_hotel",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

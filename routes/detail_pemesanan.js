@@ -1,7 +1,7 @@
 const express = require("express"); // import express
 const bodyParser = require("body-parser"); // import body-parser
 const { Op } = require("sequelize"); // import sequelize
-const auth = require("../auth"); // import auth
+const { auth } = require("../auth"); // import auth
 
 const app = express(); // create express app
 app.use(bodyParser.json()); // parse request of content-type - application/json

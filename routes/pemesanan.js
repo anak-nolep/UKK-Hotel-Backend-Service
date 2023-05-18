@@ -1,7 +1,7 @@
 const express = require("express"); // import express
 const bodyParser = require("body-parser"); // import body-parser
 const { Op } = require("sequelize"); // import sequelize
-const auth = require("../auth"); // import auth
+const { auth } = require("../auth"); // import auth
 
 const app = express(); // inisialisasi express
 app.use(bodyParser.json()); // body parser
@@ -292,7 +292,7 @@ app.post("/searchByEmailAndNumber", auth, async (req, res) => { // auth sebagai 
     .then((result) => { // jika berhasil
       res.status(200).json({ // kirim response dengan status 200
         status: "success", // status success
-        message: 
+        message:
           "result of email pemesan " +
           req.params.email_pemesan +
           " and nomor pemesanan " +

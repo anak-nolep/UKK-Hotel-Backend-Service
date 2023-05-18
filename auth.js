@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken"); // create token
 const SECRET_KEY = "UKKcyangpalingcantik"; // secret key
-auth = (req, res, next) => { // middleware
+
+const auth = (req, res, next) => { // middleware
   let header = req.headers.authorization; // ambil token dari header
   let token = header && header.split(" ")[1]; // ambil token dari header dan split
 
@@ -22,4 +23,4 @@ auth = (req, res, next) => { // middleware
   }
 };
 
-module.exports = auth; // export auth
+module.exports = { auth, SECRET_KEY }; // export auth

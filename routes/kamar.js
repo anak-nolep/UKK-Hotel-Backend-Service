@@ -1,7 +1,7 @@
 const express = require("express"); // import express
 const bodyParser = require("body-parser"); // import body-parser
 const { Op } = require("sequelize"); // import sequelize
-const auth = require("../auth"); // import auth
+const { auth } = require("../auth"); // import auth
 
 const app = express(); // create express app
 app.use(bodyParser.json()); // parse request of content-type - application/json
@@ -15,7 +15,7 @@ app.get("/getAllData", auth, async (req, res) => { // auth middleware
   await kamar // ambil semua data
     .findAll({ // find all
       include: [ // include table lain
-        { 
+        {
           model: model.tipe_kamar, // include tipe_kamar
           as: "tipe_kamar", // alias tipe_kamar
         },
@@ -207,7 +207,7 @@ app.get("/search/:nomor_kamar", auth, async (req, res) => { // auth middleware
     .findAll({ // find all
       where: { // where
         [Op.or]: [ // or
-          { 
+          {
             nomor_kamar: {
               [Op.like]: "%" + req.params.nomor_kamar + "%", // like %nomor_kamar%
             },
@@ -385,7 +385,7 @@ app.get( // get
 
             model.tipe_kamar.findAll().then((result) => { // cari data
               const tipeKamar = result.filter( // filter
-                (item) => 
+                (item) =>
                   !uniqueTipeKamarUnavailable.includes(item.id_tipe_kamar) // jika tidak ada di uniqueTipeKamarUnavailable
               );
               tipeKamar.push( // push

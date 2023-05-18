@@ -2,9 +2,8 @@ const express = require("express"); // import express
 const bodyParser = require("body-parser"); // import body-parser
 const bcrypt = require("bcrypt"); // import bcrypt
 const { Op } = require("sequelize"); // import sequelize
-const auth = require("../auth"); // import auth
+const { auth, SECRET_KEY } = require("../auth"); // import auth
 const jwt = require("jsonwebtoken"); // import jsonwebtoken
-const SECRET_KEY = "UKKcyangpalingcantik"; // set secret key
 
 const app = express(); // create express app
 app.use(bodyParser.json()); // parse request of content-type - application/json

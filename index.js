@@ -2,6 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const helmet = require("helmet");
 
 // variable
 const PORT = process.env.PORT || 8080;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(helmet());
 
 // endpoint user
 const user = require("./routes/user");
@@ -31,7 +33,13 @@ app.use("/pemesanan", pemesanan);
 const detail_pemesanan = require("./routes/detail_pemesanan");
 app.use("/detail_pemesanan", detail_pemesanan);
 
+app.get("/ping", (req, res) => {
+  res.status(200).json({
+    message: "pong",
+  });
+});
+
 //run server
 app.listen(PORT, () => {
-  console.log("server run on port " + PORT);
+  console.log("server run on port http://localhost:" + PORT);
 });
